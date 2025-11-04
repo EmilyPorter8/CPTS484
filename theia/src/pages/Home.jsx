@@ -8,13 +8,13 @@ export default function Home() {
     <div className="container">
       <h1 className="title">Welcome to THEIA</h1>
       <div className="buttonContainer">
-        <button className="button" onClick={() => navigate("/navigation")}>
+        <button onClick={() => navigate("/navigation")}>
           Navigation
         </button>
-        <button className="button" onClick={() => navigate("/settings")}>
+        <button onClick={() => navigate("/settings")}>
           Settings
         </button>
-        <button className="button" onClick={() => navigate("/emergency")}>
+        <button onClick={() => navigate("/emergency")}>
           Emergency
         </button>
       </div>
