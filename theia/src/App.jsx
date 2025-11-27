@@ -8,12 +8,17 @@ import "./App.css"
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/navigation" element={<Navigation />} />
-      <Route path="/settings" element={<Settings />} />
-      <Route path="/emergency" element={<Emergency />} />
-    </Routes>
+    <div>
+      <header>
+        <a style={{ textDecoration: "none", color: "#333", fontFamily: "Arial, sans-serif",  }} href="/">THEIA</a>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/navigation" element={<Navigation />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/emergency" element={<Emergency />} />
+      </Routes>
+    </div>
   );
 }
 
