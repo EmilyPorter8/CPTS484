@@ -17,7 +17,7 @@ export default function Navigation() {
     };
 
     return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div className="container" style={{ textAlign: "center", padding: "20px" }}>
         <h1>THEIA Indoor Navigation</h1>
 
         <LocationSelector
@@ -31,7 +31,7 @@ export default function Navigation() {
 
         <MapGrid grid={buildingMap} path={path} />
 
-        {/* <RouteTTS route={path.map(([r, c]) => buildingMap[r][c])} /> */}
+        <RouteTTS route={path} />
     </div>
     );
 };
