@@ -36,13 +36,17 @@ export default function Emergency() {
 
   useEffect(() => {
     if (isCanceled || emergencyServicesContacted || isCountdownActive) return;
+    if (emergencyContacts.length === 0) {
+      setEmergencyServicesContacted(true);
+      return;
+    }
     if (currentStep < emergencyContacts.length) {
       const timer = setTimeout(() => {
         setContactResults(results => [...results, { name: emergencyContacts[currentStep], answered: false }]);
         setCurrentStep(step => step + 1);
       }, 1500);
       return () => clearTimeout(timer);
-    } else if (emergencyContacts.length > 0 && currentStep === emergencyContacts.length) {
+    } else if (currentStep === emergencyContacts.length) {
       const timer = setTimeout(() => {
         setEmergencyServicesContacted(true);
       }, 1500);
@@ -70,11 +74,10 @@ export default function Emergency() {
       )}
 
 
-      {!isCountdownActive && !isCanceled && (
+      {!isCountdownActive && !isCanceled && emergencyContacts.length > 0 && !emergencyServicesContacted && (
         <div>
           <p>Contacting emergency contacts...</p>
           <ul style={{ listStyle: "none", padding: 0 }}>
-            {emergencyContacts.length === 0 && <li>No emergency contacts set.</li>}
             {emergencyContacts.map((name, idx) => (
               <li key={name + idx}>
                 {contactResults[idx] ? (
