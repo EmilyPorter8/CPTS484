@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 
 
-
 export default function Emergency() {
   const [emergencyContacts, setEmergencyContacts] = useState([]);
-  const [countdown, setCountdown] = useState(5);
+  const [countdown, setCountdown] = useState(15);
   const [isCountdownActive, setIsCountdownActive] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
   const [contactResults, setContactResults] = useState([]);
@@ -72,7 +71,6 @@ export default function Emergency() {
           <h2>{countdown}</h2>
         </div>
       )}
-
 
       {!isCountdownActive && !isCanceled && emergencyContacts.length > 0 && !emergencyServicesContacted && (
         <div>
